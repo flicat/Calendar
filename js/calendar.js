@@ -1,5 +1,5 @@
 /*!
- * @作者: flicat.li@wintour.cn
+ * @作者: liyuelong1020@gmail.com
  * @日期: 2014/05/08
  * @备注: 日历插件 v2.0
  *
