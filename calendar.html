@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>日历插件</title>
+<script type="text/javascript" src="js/jquery-min.js"></script>
+<script type="text/javascript" src="js/calendar.js"></script>
+<link href="css/calendar.css" rel="stylesheet">
+<script type="text/javascript">
+$(function (){
+    
+    $('#star_date, #end_date').DSCalendar({
+        size: 2,
+        defaultDate: !0,
+        icon: true,
+        minDate: new Date(),
+        //maxDate: '2014-05-15',
+        dateFormat: 'w y年m月d日',
+        startDateTarget: $('#star_date'),    // 开始日期节点
+        endDateTarget:  $('#end_date'),      // 结束日期节点
+        interval: 2,
+        filter: [
+            {
+            "period_type": "0",       // 有效 0 / 排除 1
+            "period": "3",            // 周期 一次性  0 每年 1  每月 2 每周 3
+            "start": 3,     // 开始日期
+            "end": 6        // 结束日期
+        }],
+        onClose:function (){
+
+        }
+        
+    });
+
+
+    $('#test1 , #test2').DSCalendar({
+        defaultDate: true,
+        size: 2,
+        icon: true,
+        dateFormat: 'w y年m月d日',
+        minDate: '2014-05-30',
+        maxDate: '2014-05-05',
+        startDateTarget: $('#test1'),    // 开始日期节点
+        endDateTarget:  $('#test2'),      // 结束日期节点
+        interval: 3,
+        filter: [
+            // 每年       有效
+            {
+                "period_type": "0",
+                "period": "1",
+                "start": "6-1",
+                "end": "6-7"
+            },
+            // 每月          有效
+            {
+                "period_type": "0",       // 有效 0 / 排除 1
+                "period": "2",            // 周期 一次性  0 每年 1  每月 2 每周 3
+                "start": 10,     // 开始日期
+                "end": 20        // 结束日期
+            },
+                // 每周      有效
+            {
+                "period_type": "0",
+                "period": "3",
+                "start": 1,
+                "end": 0
+            },
+            // 一次性     排除
+            {
+                "period_type": "1",
+                "period": "0",
+                "start": "2014-10-1",
+                "end": "2014-10-7"
+            }
+        ],
+        onClose:function (){
+
+        }
+    });
+    /*
+    $('#showCal').DSCalendar({
+
+        minDate: '',
+        maxDate: new Date(),
+        dateFormat: 'w,y/m/d',
+        onClose: function (){
+            $('#showCal').html($('#showCal').val());
+        }
+
+    });
+    */
+});
+</script>
+</head>
+
+<body>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<label>star date:
+    <input type="text" name="star_date" value="2014-04-1" id="star_date">
+</label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<label>end date:
+    <input type="text" name="end_date" id="end_date">
+</label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+<label>test1:
+    <input type="text" name="test1" id="test1">
+</label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<label>test2:
+    <input type="text" name="test2" id="test2">
+</label>
+<br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<button type="button" id="showCal" value="">日历控件</button>
+
+
+</body>
+</html>
